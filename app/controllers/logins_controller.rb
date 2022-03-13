@@ -3,7 +3,8 @@ class LoginsController < ApplicationController
 
   # GET /logins
   def index
-    @logins = Login.page(params[:page]).per(10)
+    @q = Login.ransack(params[:q])
+    @logins = @q.result(:distinct => true).page(params[:page]).per(10)
   end
 
   # GET /logins/1
