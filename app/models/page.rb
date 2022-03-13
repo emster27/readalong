@@ -5,6 +5,8 @@ class Page < ApplicationRecord
 
   # Validations
 
+  validates :writer_name, :presence => true
+
   # Scopes
 
   def to_s
