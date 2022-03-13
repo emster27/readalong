@@ -1,7 +1,6 @@
 <% was_validated = bookmark.errors.any? %>
 
 <%= form_with(model: bookmark, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for page_id start -->
   <div class="form-group">
     <% page_class = "form-control" %>
     <% page_was_invalid = bookmark.errors.include?(:page) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :page_id %>
-    <!-- Input for page_id start -->
     <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for page_id end -->
     <% if page_was_invalid %>
       <% bookmark.errors.full_messages_for(:page).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for page_id end -->
-  <!-- Label and input for recommendations start -->
   <div class="form-group">
     <% recommendation_class = "form-control" %>
     <% recommendation_was_invalid = bookmark.errors.include?(:recommendation) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :recommendations %>
-    <!-- Input for recommendations start -->
     <%= f.text_area :recommendations, class: recommendation_class, placeholder: "Enter recommendation" %>
-    <!-- Input for recommendations end -->
     <% if recommendation_was_invalid %>
       <% bookmark.errors.full_messages_for(:recommendation).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for recommendations end -->
-  <!-- Label and input for reader_id start -->
   <div class="form-group">
     <% reader_class = "form-control" %>
     <% reader_was_invalid = bookmark.errors.include?(:reader) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :reader_id %>
-    <!-- Input for reader_id start -->
     <%= f.collection_select :reader_id, Reader.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reader_id end -->
     <% if reader_was_invalid %>
       <% bookmark.errors.full_messages_for(:reader).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

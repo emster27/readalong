@@ -1,7 +1,6 @@
 <% was_validated = login.errors.any? %>
 
 <%= form_with(model: login, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for useremail start -->
   <div class="form-group">
     <% useremail_class = "form-control" %>
     <% useremail_was_invalid = login.errors.include?(:useremail) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :useremail %>
-    <!-- Input for useremail start -->
     <%= f.text_field :useremail, class: useremail_class, placeholder: "Enter useremail" %>
-    <!-- Input for useremail end -->
     <% if useremail_was_invalid %>
       <% login.errors.full_messages_for(:useremail).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for useremail end -->
-  <!-- Label and input for usertype start -->
   <div class="form-check">
     <% usertype_class = "form-check-input" %>
     <% usertype_was_invalid = login.errors.include?(:usertype) %>
@@ -51,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for usertype end -->
-  <!-- Label and input for password start -->
   <div class="form-group">
     <% password_class = "form-control" %>
     <% password_was_invalid = login.errors.include?(:password) %>
@@ -66,9 +59,7 @@
     <% end %>
 
     <%= f.label :password %>
-    <!-- Input for password start -->
     <%= f.text_field :password, class: password_class, placeholder: "Enter password" %>
-    <!-- Input for password end -->
     <% if password_was_invalid %>
       <% login.errors.full_messages_for(:password).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -77,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for password end -->
-  <!-- Label and input for reader_id start -->
   <div class="form-group">
     <% reader_class = "form-control" %>
     <% reader_was_invalid = login.errors.include?(:reader) %>
@@ -92,9 +81,7 @@
     <% end %>
 
     <%= f.label :reader_id %>
-    <!-- Input for reader_id start -->
     <%= f.number_field :reader_id, class: reader_class, placeholder: "Enter reader" %>
-    <!-- Input for reader_id end -->
     <% if reader_was_invalid %>
       <% login.errors.full_messages_for(:reader).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -103,6 +90,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

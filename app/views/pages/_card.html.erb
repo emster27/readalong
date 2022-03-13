@@ -6,21 +6,15 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @page.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
       <dt>Writer name</dt>
-      <!-- Display writer_name start -->
       <dd><%= page.writer_name %></dd>
-      <!-- Display writer_name end -->
 
       <dt>Content</dt>
-      <!-- Display content start -->
       <dd><%= page.content %></dd>
-      <!-- Display content end -->
 
     </dl>
 
@@ -29,21 +23,17 @@
         <%= link_to_show_or_back page, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link page start -->
       <div class="col">
         <%= link_to edit_page_url(page), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link page end -->
 
-      <!-- Delete link page start -->
       <div class="col">
         <%= link_to page, method: :delete, data: { confirm: "Do you really want to delete this page?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link page end -->
     </div>
   </div>
 
