@@ -27,7 +27,11 @@
 
       <dt>Page</dt>
       <!-- Display page_id start -->
-      <dd><%= comment.page_id %></dd>
+      <dd>
+        <% if @comment.page.present? %>
+          <%= link_to comment.page, comment.page %>
+        <% end %>
+      </dd>
       <!-- Display page_id end -->
 
     </dl>
