@@ -5,6 +5,8 @@ class Login < ApplicationRecord
 
   # Validations
 
+  validates :password, :length => { :minimum => 8, :maximum => 20 }
+
   validates :password, :inclusion => { :in => [ "@", "-", "_" ]  }
 
   validates :useremail, :presence => true
