@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Login #<%= login.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Useremail</dt>
+      <!-- Display useremail start -->
+      <dd><%= login.useremail %></dd>
+      <!-- Display useremail end -->
+
+      <dt>Usertype</dt>
+      <!-- Display usertype start -->
+      <dd><%= login.usertype %></dd>
+      <!-- Display usertype end -->
+
+      <dt>Password</dt>
+      <!-- Display password start -->
+      <dd><%= login.password %></dd>
+      <!-- Display password end -->
+
+      <dt>Reader</dt>
+      <!-- Display reader_id start -->
+      <dd><%= login.reader_id %></dd>
+      <!-- Display reader_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back login, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link login start -->
+      <div class="col">
+        <%= link_to edit_login_url(login), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link login end -->
+
+      <!-- Delete link login start -->
+      <div class="col">
+        <%= link_to login, method: :delete, data: { confirm: "Do you really want to delete this login?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link login end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(login.updated_at) %> ago
+  </div>
+</div>

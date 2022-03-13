@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :logins
   resources :bookmarks
   resources :comments
   resources :readers
