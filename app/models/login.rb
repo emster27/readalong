@@ -5,6 +5,8 @@ class Login < ApplicationRecord
 
   # Validations
 
+  validates :useremail, :presence => true
+
   # Scopes
 
   def to_s
