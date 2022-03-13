@@ -1,5 +1,7 @@
 ActiveAdmin.register Reader do
 
+ permit_params :reader_name, :email
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
