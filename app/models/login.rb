@@ -5,18 +5,17 @@ class Login < ApplicationRecord
 
   # Validations
 
-  validates :password, :presence => true
+  validates :password, presence: true
 
-  validates :password, :length => { :minimum => 8, :maximum => 20 }
+  validates :password, length: { minimum: 8, maximum: 20 }
 
-  validates :password, :inclusion => { :in => [ "@", "-", "_" ]  }
+  validates :password, inclusion: { in: ["@", "-", "_"] }
 
-  validates :useremail, :presence => true
+  validates :useremail, presence: true
 
   # Scopes
 
   def to_s
     useremail
   end
-
 end

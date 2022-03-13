@@ -4,23 +4,22 @@ class Page < ApplicationRecord
   # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   # Validations
 
-  validates :content, :presence => true
+  validates :content, presence: true
 
-  validates :writer_name, :presence => true
+  validates :writer_name, presence: true
 
   # Scopes
 
   def to_s
     created_at
   end
-
 end

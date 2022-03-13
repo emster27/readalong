@@ -13,5 +13,4 @@ class PageResource < ApplicationResource
   has_many   :comments
 
   # Indirect associations
-
 end

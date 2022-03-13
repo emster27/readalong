@@ -13,7 +13,7 @@ class Api::V1::LoginsController < Api::V1::GraphitiController
     login = LoginResource.build(params)
 
     if login.save
-      render jsonapi: login, status: 201
+      render jsonapi: login, status: :created
     else
       render jsonapi_errors: login
     end
@@ -33,7 +33,7 @@ class Api::V1::LoginsController < Api::V1::GraphitiController
     login = LoginResource.find(params)
 
     if login.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: login
     end

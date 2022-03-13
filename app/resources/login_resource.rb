@@ -10,5 +10,4 @@ class LoginResource < ApplicationResource
   # Direct associations
 
   # Indirect associations
-
 end

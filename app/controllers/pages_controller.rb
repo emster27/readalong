@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: %i[show edit update destroy]
 
   # GET /pages
   def index
     @q = Page.ransack(params[:q])
-    @pages = @q.result(:distinct => true).includes(:comments, :bookmarks).page(params[:page]).per(10)
+    @pages = @q.result(distinct: true).includes(:comments,
+                                                :bookmarks).page(params[:page]).per(10)
   end
 
   # GET /pages/1
@@ -19,15 +20,14 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pages
   def create
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to @page, notice: 'Page was successfully created.'
+      redirect_to @page, notice: "Page was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
-      redirect_to @page, notice: 'Page was successfully updated.'
+      redirect_to @page, notice: "Page was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,18 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   def destroy
     @page.destroy
-    redirect_to pages_url, notice: 'Page was successfully destroyed.'
+    redirect_to pages_url, notice: "Page was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def page_params
-      params.require(:page).permit(:image, :writer_name, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def page_params
+    params.require(:page).permit(:image, :writer_name, :content)
+  end
 end
