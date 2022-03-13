@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 
   # GET /pages/1
   def show
+    @bookmark = Bookmark.new
+    @comment = Comment.new
   end
 
   # GET /pages/new

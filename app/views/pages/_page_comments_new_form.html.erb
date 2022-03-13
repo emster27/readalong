@@ -1,0 +1,49 @@
+<!-- Form comment start -->
+<%= form_with(model: @comment, local: true) do |f| %>
+<!-- Form comment end -->
+
+  <!-- Label and input for comment start -->
+  <div class="form-group">
+    <%= f.label :comment %>
+    <!-- Input for comment start -->
+    <%= f.text_area :comment, rows: "3", class: "form-control" %>
+    <!-- Input for comment end -->
+  </div>
+  <!-- Label and input for comment end -->
+
+  <!-- Label and input for page_name start -->
+  <div class="form-group">
+    <%= f.label :page_name %>
+
+    <!-- Input for page_name start -->
+    <%= f.text_field :page_name, class: "form-control" %>
+    <!-- Input for page_name end -->
+  </div>
+  <!-- Label and input for page_name end -->
+
+  <!-- Label and input for reader start -->
+  <div class="form-group">
+    <%= f.label :reader %>
+    <!-- Input for reader start -->
+    <%= f.text_area :reader, rows: "3", class: "form-control" %>
+    <!-- Input for reader end -->
+  </div>
+  <!-- Label and input for reader end -->
+
+  <!-- Label and input for reader_email start -->
+  <div class="form-group">
+    <%= f.label :reader_email %>
+    <!-- Input for reader_email start -->
+    <%= f.text_area :reader_email, rows: "3", class: "form-control" %>
+    <!-- Input for reader_email end -->
+  </div>
+  <!-- Label and input for reader_email end -->
+
+  <!-- Label and input for page_id start -->
+  <!-- Input for page_id start -->
+  <%= f.hidden_field :page_id, value: @page.id %>
+  <!-- Input for page_id end -->
+  <!-- Label and input for page_id end -->
+
+  <%= f.submit "Create comment", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
