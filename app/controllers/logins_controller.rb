@@ -3,7 +3,7 @@ class LoginsController < ApplicationController
 
   # GET /logins
   def index
-    @logins = Login.all
+    @logins = Login.page(params[:page]).per(10)
   end
 
   # GET /logins/1
