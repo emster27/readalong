@@ -12,6 +12,8 @@ RSpec.describe Bookmark, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:page_id) }
+
     it { should validate_presence_of(:reader_id) }
 
     end

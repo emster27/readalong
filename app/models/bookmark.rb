@@ -5,6 +5,8 @@ class Bookmark < ApplicationRecord
 
   # Validations
 
+  validates :page_id, :presence => true
+
   validates :reader_id, :presence => true
 
   # Scopes
