@@ -8,6 +8,8 @@ class BookmarkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :page
+
   # Indirect associations
 
 end
