@@ -5,6 +5,8 @@ class Login < ApplicationRecord
 
   # Validations
 
+  validates :password, :inclusion => { :in => [ "@", "-", "_" ]  }
+
   validates :useremail, :presence => true
 
   # Scopes
